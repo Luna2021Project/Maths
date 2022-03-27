@@ -15,8 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    //runGame("addition");
-
+    runGame(gameType);
 });
 
 /**
@@ -32,16 +31,15 @@ function runGame(gameType) {
     if (gameType === "addition") {
         displayAdditionQuestion(num1, num2);
     } else if (gameType === "subtract") {
-        displayMultiplyQuestion(num1, num2);
+        displaySubtractQuestion(num1, num2);
     } else if (gameType === "multiply") {
         displayMultiplyQuestion(num1, num2);
     } else if (gameType === "division") {
-        displayMultiplyQuestion(num1, num2);
+        displayDivisionQuestion(num1, num2);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
-
 }
 
 /**
@@ -55,10 +53,10 @@ function checkAnswer() {
     let isCorrect = userAnswer === calculatedAnswer[0];
 
     if (isCorrect) {
-        alert("Hey! You got it right! :D");
+        alert("Parabéns!!! Você acertou Maria !");
         incrementScore();
     } else {
-        alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
+        alert(`Ahhhhhh... sua resposta foi ${userAnswer}. A resposta correta é ${calculatedAnswer[0]}!`);
         incrementWrongAnswer();
     }
 
@@ -78,7 +76,7 @@ function calculateCorrectAnswer() {
 
     if (operator === "+") {
         return [operand1 + operand2, "addition"];
-    } else if (operator === "-") {
+    } else if (operator === "_") {
         return [operand1 - operand2, "subtract"];
     } else if (operator === "x") {
         return [operand1 * operand2, "multiply"];
