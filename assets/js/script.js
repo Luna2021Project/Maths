@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    runGame(gameType);
+    runGame("addition");
 });
 
 /**
@@ -53,7 +53,7 @@ function checkAnswer() {
     let isCorrect = userAnswer === calculatedAnswer[0];
 
     if (isCorrect) {
-        alert("Parabéns!!! Você acertou Maria !");
+        alert(`Parabéns!!! Você acertou Maria !`);
         incrementScore();
     } else {
         alert(`Ahhhhhh... sua resposta foi ${userAnswer}. A resposta correta é ${calculatedAnswer[0]}!`);
@@ -76,12 +76,12 @@ function calculateCorrectAnswer() {
 
     if (operator === "+") {
         return [operand1 + operand2, "addition"];
-    } else if (operator === "_") {
+    } else if (operator === "-") {
         return [operand1 - operand2, "subtract"];
     } else if (operator === "x") {
         return [operand1 * operand2, "multiply"];
     } else if (operator === "%") {
-        return [operand1 % operand2, "division"];
+        return [operand1 / operand2, "division"];
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
