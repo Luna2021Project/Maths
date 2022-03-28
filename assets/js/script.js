@@ -46,7 +46,11 @@ function runGame(gameType) {
     } else if (gameType === "division") {
         let result = num1 * num2;
 	    num1 = result;
-        displayDivisionQuestion(num1, num2);
+        if ((result <= 10) && (result >= num2)) {
+            displayDivisionQuestion(num1, num2);            
+        } else {
+            runGame("division");
+        }        
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
